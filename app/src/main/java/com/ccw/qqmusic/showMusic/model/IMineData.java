@@ -8,9 +8,9 @@ import java.util.List;
  * Created by 蔡灿武 on 2016/10/17 0017.
  */
 
-public interface IShowDate {
+public interface IMineData {
 
-    List<MusicBean> getPlayList();
+    void getPlayList(OnDataLoadListener onDataLoadListener);
 
     List<MusicBean> getLocalMusic();
 }

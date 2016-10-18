@@ -159,17 +159,7 @@
                         android:layout_height="wrap_content"
                         android:text="最近播放" />
                 </LinearLayout>
-
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@color/white"
-            android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
@@ -230,17 +220,16 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:layout_marginTop="12dp"
             android:background="@color/white">
 
             <ImageView
                 android:id="@+id/iv"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:padding="4dp"
                 android:src="@drawable/default1" />
 
@@ -249,7 +238,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_toRightOf="@+id/iv"
                 android:text="个性电台" />
 
@@ -262,12 +251,13 @@
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:text="猜你喜欢提升为个性电台，好音乐期待你的偶遇     " />
+                android:singleLine="true"
+                android:text="猜你喜欢提升为个性电台，好音乐期待你的偶遇" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="12dp"
             android:background="@color/white">
 
@@ -280,8 +270,8 @@
 
             <ImageView
                 android:id="@+id/iv2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_alignParentRight="true"
                 android:padding="12dp"
                 android:src="@drawable/tribe_arrows_icon" />
@@ -292,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@id/iv2"
-                android:text="3" />
+                android:text="0" />
         </RelativeLayout>
 
         <LinearLayout

@@ -76,6 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:singleLine="true"
             android:layout_toRightOf="@+id/music_thumbnail"
             android:text="云宫迅音" />
 
@@ -101,6 +104,8 @@
             android:layout_height="56dp"
             android:layout_toLeftOf="@+id/play_list"
             android:padding="8dp"
+            android:onClick="play_or_pause"
+            android:id="@+id/play_or_pause"
             android:src="@drawable/ring_btnplay" />
     </RelativeLayout>
 
