@@ -11,6 +11,16 @@ public class MusicBean {
     private String author;
     private long time;
 
+    public MusicBean() {
+    }
+
+    public MusicBean(String musicName, String musicPath, String author, long time) {
+        this.musicName = musicName;
+        this.musicPath = musicPath;
+        this.author = author;
+        this.time = time;
+    }
+
     public String getMusicName() {
         return musicName;
     }

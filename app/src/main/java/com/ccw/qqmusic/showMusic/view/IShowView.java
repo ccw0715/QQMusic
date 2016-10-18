@@ -8,4 +8,6 @@ import com.ccw.qqmusic.showMusic.model.bean.MusicBean;
 
 public interface IShowView {
     void updateMusic(MusicBean bean);
+
+    void updatePauseBtn();
 }

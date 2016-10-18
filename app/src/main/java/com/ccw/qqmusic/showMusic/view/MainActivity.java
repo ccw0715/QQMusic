@@ -1,5 +1,6 @@
 package com.ccw.qqmusic.showMusic.view;
 
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,10 +12,12 @@ import android.widget.TextView;
 import com.ccw.qqmusic.BaseActivity;
 import com.ccw.qqmusic.R;
 import com.ccw.qqmusic.showMusic.model.bean.MusicBean;
+import com.ccw.qqmusic.showMusic.presenter.ShowPresenter;
 import com.ccw.qqmusic.showMusic.view.adapter.VpAdapter;
 import com.ccw.qqmusic.showMusic.view.fragment.FindFragment;
 import com.ccw.qqmusic.showMusic.view.fragment.MineFragment;
 import com.ccw.qqmusic.showMusic.view.fragment.MusicFragment;
+import com.ccw.qqmusic.showMusic.view.receiver.Receiver;
 import com.ccw.qqmusic.util.MusicUtil;
 import com.ccw.qqmusic.util.PlayUtil;
 
@@ -29,12 +32,19 @@ public class MainActivity extends BaseActivity implements IShowView {
     private CustomShapeImageView music_thumbnail;
     private TextView musicName;
     private MusicBean musicBean;
+    private ShowPresenter showPresenter=new ShowPresenter(this);
+    private Receiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        receiver = new Receiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(PlayUtil.STOPSERVICE_ACTION);
+        registerReceiver(receiver,filter);
         initView();
+        showPresenter.loadData();
     }
 
     private void initView() {
@@ -59,9 +69,18 @@ public class MainActivity extends BaseActivity implements IShowView {
         } else {
             music_thumbnail.setImageResource(R.drawable.default1);
         }
-        if (PlayUtil.CURRENT_STATE == PlayUtil.PLAY) {
+        pauseBtn();
+    }
+
+    @Override
+    public void updatePauseBtn() {
+        pauseBtn();
+    }
+
+    private void pauseBtn() {
+        if (PlayUtil.CURRENT_STATE == PlayUtil.PLAY){
             play_or_pause.setImageResource(R.drawable.btn_notification_player_stop_pressed);
-        } else {
+        }else {
             play_or_pause.setImageResource(R.drawable.btn_notification_player_next_pressed);
         }
     }
@@ -77,5 +96,12 @@ public class MainActivity extends BaseActivity implements IShowView {
             play_or_pause.setImageResource(R.drawable.btn_notification_player_next_pressed);
             PlayUtil.startService(this, musicBean, PlayUtil.PAUSE);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
+        showPresenter.saveData(musicBean);
     }
 }

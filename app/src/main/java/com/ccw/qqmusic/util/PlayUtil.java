@@ -18,6 +18,7 @@ public class PlayUtil {
     public final static int PLAY = 0;
     public final static int PAUSE = 1;
     public final static int STOP = 2;
+    public final static String STOPSERVICE_ACTION = "stopservice_action";
     //记录当前的播放转态
     public static int CURRENT_STATE = 2;
 
