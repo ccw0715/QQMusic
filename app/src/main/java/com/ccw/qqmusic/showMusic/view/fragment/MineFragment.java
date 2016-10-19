@@ -1,6 +1,7 @@
 package com.ccw.qqmusic.showMusic.view.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -9,10 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ccw.qqmusic.BaseFragment;
 import com.ccw.qqmusic.R;
+import com.ccw.qqmusic.localMusic.view.LocalMusicActivity;
 import com.ccw.qqmusic.showMusic.model.bean.MusicBean;
 import com.ccw.qqmusic.showMusic.model.bean.UserBean;
 import com.ccw.qqmusic.showMusic.presenter.MinePresenter;
@@ -34,6 +37,7 @@ public class MineFragment extends BaseFragment implements IMineView {
     private TextView tv;
     private Handler mHandler = new Handler();
     private IShowView iShowView;
+    private LinearLayout localMusic;
 
     @Override
     public void onAttach(Context context) {
@@ -55,6 +59,13 @@ public class MineFragment extends BaseFragment implements IMineView {
     private void initView() {
         lv = ((MyListView) view.findViewById(R.id.play_list_lv));
         tv = ((TextView) view.findViewById(R.id.play_list_size_tv));
+        localMusic = ((LinearLayout) view.findViewById(R.id.local_music));
+        localMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), LocalMusicActivity.class));
+            }
+        });
     }
 
     @Override

@@ -17,6 +17,8 @@ public class Receiver extends BroadcastReceiver {
 
         if(PlayUtil.STOPSERVICE_ACTION.equals(intent.getAction())){
             ((IShowView) context).updatePauseBtn();
+        }else if(PlayUtil.UPDATE_BOTTOM_MUSIC_MSG_ACTION.equals(intent.getAction())){
+            ((IShowView) context).updateMusic(PlayUtil.currentMusic);
         }
     }
 }

@@ -49,7 +49,7 @@ public class MusicService extends Service{
         manager.notify(1,builder.build());
         switch (type){
             case PlayUtil.PLAY:
-                PlayUtil.play(intent.getStringExtra("musicPath"));
+                PlayUtil.play(this,intent.getStringExtra("musicPath"));
                 break;
             case PlayUtil.PAUSE:
                 PlayUtil.pause();

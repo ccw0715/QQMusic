@@ -15,8 +15,8 @@ public class IShowDataImp implements IShowData {
     public void saveData(MusicBean musicBean, Context context) {
         SharedPreferences sp = context.getSharedPreferences(MusicUtil.MUSICBEAN, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
-        edit.putString("musicPath",musicBean.getMusicPath());
-        edit.putString("musicName",musicBean.getMusicName());
+        edit.putString("musicPath",musicBean.getUrl());
+        edit.putString("musicName",musicBean.getSongName());
         edit.commit();
     }
 
@@ -24,8 +24,8 @@ public class IShowDataImp implements IShowData {
     public MusicBean loadData(Context context) {
         MusicBean musicBean = new MusicBean();
         SharedPreferences sp = context.getSharedPreferences(MusicUtil.MUSICBEAN, Context.MODE_PRIVATE);
-        musicBean.setMusicPath(sp.getString("musicPath",""));
-        musicBean.setMusicName(sp.getString("musicName",""));
+        musicBean.setUrl(sp.getString("musicPath",""));
+        musicBean.setSongName(sp.getString("musicName",""));
         return musicBean;
     }
 }

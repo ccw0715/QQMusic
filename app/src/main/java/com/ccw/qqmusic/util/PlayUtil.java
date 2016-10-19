@@ -19,12 +19,15 @@ public class PlayUtil {
     public final static int PAUSE = 1;
     public final static int STOP = 2;
     public final static String STOPSERVICE_ACTION = "stopservice_action";
+    public final static String UPDATE_BOTTOM_MUSIC_MSG_ACTION = "update_bottom_music_msg_action";
     //记录当前的播放转态
     public static int CURRENT_STATE = 2;
+    //当前正在播放的Music对象
+    public static MusicBean currentMusic;
 
-    public static void play(String musicPath) {
+    public static void play(Context context,String musicPath) {
         if (player == null) {
-            init();
+            init(context);
         }
         player.reset();
         try {
@@ -54,13 +57,14 @@ public class PlayUtil {
         }
     }
 
-    private static void init() {
+    private static void init(final Context context) {
         player = new MediaPlayer();
         player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.start();
                 CURRENT_STATE = PLAY;
+                context.sendBroadcast(new Intent(UPDATE_BOTTOM_MUSIC_MSG_ACTION));
             }
         });
     }
@@ -68,8 +72,8 @@ public class PlayUtil {
     public static void startService(Context context, MusicBean musicBean, int type) {
         Intent intent = new Intent(context, MusicService.class);
         intent.putExtra("type", type);
-        intent.putExtra("musicPath", musicBean.getMusicPath());
-        intent.putExtra("musicName", musicBean.getMusicName());
+        intent.putExtra("musicPath", musicBean.getUrl());
+        intent.putExtra("musicName", musicBean.getSongName());
         context.startService(intent);
     }
 }

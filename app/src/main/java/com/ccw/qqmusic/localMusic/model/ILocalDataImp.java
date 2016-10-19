@@ -25,7 +25,12 @@ public class ILocalDataImp implements ILocalData {
             String musicName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));
             String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
             long duration = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
-            list.add(new MusicBean(musicName, musicPath, artist, duration));
+            MusicBean bean = new MusicBean();
+            bean.setSongName(musicName);
+            bean.setUrl(musicPath);
+            bean.setSingerName(artist);
+            bean.setSeconds((int) (duration/1000));
+            list.add(bean);
         }
         cursor.close();
         return list;

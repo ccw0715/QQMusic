@@ -15,7 +15,7 @@ public class MusicUtil {
     public static final String MUSICBEAN="musicBean";
     //获取Mp3的专辑图片
     public static Bitmap getThumbnail(String filePath) {
-        if(filePath == null || "".equals(filePath)){
+        if(filePath == null || "".equals(filePath)|| filePath.startsWith("http")){
             return null;
         }
         Bitmap bitmap = null;

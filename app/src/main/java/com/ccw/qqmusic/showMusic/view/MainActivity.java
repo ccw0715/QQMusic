@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity implements IShowView {
         receiver = new Receiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(PlayUtil.STOPSERVICE_ACTION);
+        filter.addAction(PlayUtil.UPDATE_BOTTOM_MUSIC_MSG_ACTION);
         registerReceiver(receiver,filter);
         initView();
         showPresenter.loadData();
@@ -62,8 +63,8 @@ public class MainActivity extends BaseActivity implements IShowView {
     @Override
     public void updateMusic(MusicBean bean) {
         this.musicBean = bean;
-        musicName.setText(bean.getMusicName());
-        Bitmap bitmap = MusicUtil.getThumbnail(bean.getMusicPath());
+        musicName.setText(bean.getSongName());
+        Bitmap bitmap = MusicUtil.getThumbnail(bean.getUrl());
         if (bitmap != null) {
             music_thumbnail.setImageBitmap(bitmap);
         } else {

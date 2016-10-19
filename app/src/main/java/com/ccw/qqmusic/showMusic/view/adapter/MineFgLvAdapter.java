@@ -59,8 +59,8 @@ public class MineFgLvAdapter extends BaseAdapter {
             hold = (ViewHold) convertView.getTag();
         }
         MusicBean musicBean = list.get(position);
-        hold.musicName.setText(musicBean.getMusicName());
-        Bitmap bitmap = MusicUtil.getThumbnail(musicBean.getMusicPath());
+        hold.musicName.setText(musicBean.getSongName());
+        Bitmap bitmap = MusicUtil.getThumbnail(musicBean.getUrl());
         if(bitmap!=null){
             hold.musicThumbnail.setImageBitmap(bitmap);
         }else {

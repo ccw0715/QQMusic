@@ -56,8 +56,8 @@ public class IMineDataImp implements IMineData {
                         String name = pathname.getName();
                         String path = pathname.getAbsolutePath();
                         MusicBean bean = new MusicBean();
-                        bean.setMusicName(name);
-                        bean.setMusicPath(path);
+                        bean.setSongName(name);
+                        bean.setUrl(path);
                         list.add(bean);
                         return true;
                     }
