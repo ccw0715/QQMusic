@@ -60,6 +60,7 @@
         android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:onClick="goPlayerActivity"
         android:layout_alignParentBottom="true"
         android:background="@color/white">
 

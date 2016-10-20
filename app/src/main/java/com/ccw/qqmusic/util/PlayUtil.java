@@ -25,7 +25,7 @@ public class PlayUtil {
     //当前正在播放的Music对象
     public static MusicBean currentMusic;
 
-    public static void play(Context context,String musicPath) {
+    public static void play(Context context, String musicPath) {
         if (player == null) {
             init(context);
         }
@@ -70,6 +70,7 @@ public class PlayUtil {
     }
 
     public static void startService(Context context, MusicBean musicBean, int type) {
+        currentMusic = musicBean;
         Intent intent = new Intent(context, MusicService.class);
         intent.putExtra("type", type);
         intent.putExtra("musicPath", musicBean.getUrl());

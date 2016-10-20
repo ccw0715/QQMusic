@@ -1,5 +1,6 @@
 package com.ccw.qqmusic.showMusic.view;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.ccw.qqmusic.BaseActivity;
 import com.ccw.qqmusic.R;
+import com.ccw.qqmusic.playMusic.view.PlayerActivity;
 import com.ccw.qqmusic.showMusic.model.bean.MusicBean;
 import com.ccw.qqmusic.showMusic.presenter.ShowPresenter;
 import com.ccw.qqmusic.showMusic.view.adapter.VpAdapter;
@@ -104,5 +106,9 @@ public class MainActivity extends BaseActivity implements IShowView {
         super.onDestroy();
         unregisterReceiver(receiver);
         showPresenter.saveData(musicBean);
+    }
+
+    public void goPlayerActivity(View view) {
+        startActivity(new Intent(this,PlayerActivity.class));
     }
 }

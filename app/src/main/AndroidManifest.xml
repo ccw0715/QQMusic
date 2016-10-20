@@ -4,11 +4,12 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".App"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".showMusic.view.MainActivity">
@@ -21,7 +22,8 @@
 
         <service android:name=".service.MusicService" />
 
-        <activity android:name=".localMusic.view.LocalMusicActivity"></activity>
+        <activity android:name=".localMusic.view.LocalMusicActivity" />
+        <activity android:name=".playMusic.view.PlayerActivity"></activity>
     </application>
 
 </manifest>
