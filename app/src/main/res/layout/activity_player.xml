@@ -88,6 +88,7 @@
                 android:id="@+id/play_or_pause"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
+                android:onClick="playOrPause"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ring_btnplay" />
 
@@ -95,6 +96,7 @@
                 android:id="@+id/player_pre_btn"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
+                android:onClick="preBtn"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="18dp"
                 android:layout_toLeftOf="@id/play_or_pause"
@@ -104,6 +106,7 @@
                 android:id="@+id/player_next_btn"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
+                android:onClick="nextBtn"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="18dp"
                 android:layout_toRightOf="@id/play_or_pause"
@@ -234,6 +237,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
+                android:id="@+id/left_menu"
                 android:background="@color/colorPrimary">
 
                 <TextView
@@ -245,6 +249,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/right_menu"
                 android:layout_gravity="right"
                 android:background="@color/colorPrimary">
 

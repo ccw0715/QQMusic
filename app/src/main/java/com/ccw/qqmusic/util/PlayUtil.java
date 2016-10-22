@@ -8,6 +8,7 @@ import com.ccw.qqmusic.service.MusicService;
 import com.ccw.qqmusic.showMusic.model.bean.MusicBean;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by 蔡灿武 on 2016/10/18 0018.
@@ -20,11 +21,14 @@ public class PlayUtil {
     public final static int STOP = 2;
     public final static String STOPSERVICE_ACTION = "stopservice_action";
     public final static String UPDATE_BOTTOM_MUSIC_MSG_ACTION = "update_bottom_music_msg_action";
+    public final static int LOCALMUSICBEAN = 3;
+    public final static int PLAYUTILMUSICBEAN = 4;
     //记录当前的播放转态
     public static int CURRENT_STATE = 2;
     //当前正在播放的Music对象
     public static MusicBean currentMusic;
-
+    public static int CURRENT_POSION = -1;
+    public static List<MusicBean> current_play_list;
     public static void play(Context context, String musicPath) {
         if (player == null) {
             init(context);
